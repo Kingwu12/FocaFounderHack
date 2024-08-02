@@ -1,24 +1,20 @@
-import { Box, Flex, Text, Button, Avatar, Spacer } from '@chakra-ui/react';
+import { Box, Flex, Text, Avatar, Spacer, useStyleConfig } from '@chakra-ui/react';
+import ColorModeSwitcher from '../ColorModeSwitcher/ColorModeSwitcher';
 
 const HeaderBar = () => {
+  const styles = useStyleConfig('HeaderBar');
   return (
-    <Box bg='teal.500' px={4}>
+    <Box __css={styles} px={6}>
       <Flex h={16} alignItems='center' justifyContent='space-between'>
         <Box>
-          <Text fontSize='xl' fontWeight='bold' color='white'>
-            MyApp
+          <Text fontSize='xl' fontWeight='bold'>
+            Foca
           </Text>
         </Box>
         <Flex alignItems='center'>
-          <Button colorScheme='teal' variant='ghost'>
-            Home
-          </Button>
-          <Button colorScheme='teal' variant='ghost'>
-            About
-          </Button>
-          <Button colorScheme='teal' variant='ghost'>
-            Contact
-          </Button>
+          <Box mr={5}>
+            <ColorModeSwitcher />
+          </Box>
           <Spacer />
           <Avatar name='John Doe' src='https://bit.ly/dan-abramov' />
         </Flex>

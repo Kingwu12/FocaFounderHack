@@ -16,7 +16,7 @@ const StreakGraph = ({ data = mockData }) => {
   }
 
   return (
-    <Box overflowX='hidden' overflowY='hidden' p={2} border={'2px solid red'}>
+    <Box overflowX='hidden' overflowY='hidden' p={2} border={'2px solid'} borderColor='gray.100'>
       <SimpleGrid columns={weeks.length} spacing={1}>
         {weeks.map((week, weekIndex) => (
           <SimpleGrid key={weekIndex} rows={7} spacing={1}>
