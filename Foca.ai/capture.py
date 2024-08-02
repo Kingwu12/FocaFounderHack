@@ -10,7 +10,7 @@ def capture_screen():
         img = Image.frombytes('RGB', screenshot.size, screenshot.bgra, 'raw', 'BGRX')
         return img
 
-def resize_image(img, max_size=(800, 800)):
+def resize_image(img, max_size=(400, 400)):
     img.thumbnail(max_size)
     return img
 
