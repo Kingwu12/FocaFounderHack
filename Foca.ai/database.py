@@ -1,10 +1,6 @@
 import sqlite3
 import os
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/main
 # save the Analysis Result to a Database
 def save_to_database(timestamp, image_path, user_task, gpt_output):
     db_path = os.path.join(os.path.dirname(__file__), 'database.db')
@@ -16,8 +12,3 @@ def save_to_database(timestamp, image_path, user_task, gpt_output):
     ''', (timestamp, image_path, user_task, gpt_output))
     conn.commit()
     conn.close()
-<<<<<<< HEAD
-
-
-=======
->>>>>>> origin/main

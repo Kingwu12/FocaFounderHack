@@ -6,11 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # send the Captured Image to OpenAI's API for Analysis
-<<<<<<< HEAD
-openai.api_key = os.getenv("OPEN_AI_KEY")
-=======
 openai.api_key = os.getenv("OPENAI_API_KEY")
->>>>>>> origin/main
 
 def analyse_image(image_path, user_goal):
     with open(image_path, "rb") as image_file:
