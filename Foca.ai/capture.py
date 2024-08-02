@@ -20,7 +20,9 @@ def convert_image_to_jpeg(img, jpeg_path):
 def start_capturing():
     img = capture_screen()
     timestamp = time.strftime('%Y-%m-%d_%H-%M-%S')
-    screenshots_dir = os.path.join(os.path.dirname(__file__), '..', 'screenshots')
+    screenshots_dir = os.path.join(os.path.dirname(__file__), 'screenshots')
+    # do below line if screenshots not in Foca.ai folder
+    # screenshots_dir = os.path.join(os.path.dirname(__file__), '..', 'screenshots')
     os.makedirs(screenshots_dir, exist_ok=True)
     
     # Numbering of screenshots

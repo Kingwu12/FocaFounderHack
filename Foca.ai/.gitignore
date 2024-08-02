@@ -1,18 +1,7 @@
 # Ignore .env file
 .env
-<<<<<<< HEAD
-/.venv/
-.base
-.myenv
-
-
-
-# Ignore Python cache files
-__pycache__/
-=======
 
 # Ignore Python cache files
 __pycache__/
 
 /screenshots/
->>>>>>> origin/main
