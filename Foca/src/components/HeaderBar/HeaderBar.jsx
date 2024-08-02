@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Flex, Text, Button, Avatar, Spacer } from '@chakra-ui/react';
 
 const HeaderBar = () => {
@@ -21,7 +20,7 @@ const HeaderBar = () => {
             Contact
           </Button>
           <Spacer />
-          <Avatar name='User Name' src='https://bit.ly/dan-abramov' />
+          <Avatar name='John Doe' src='https://bit.ly/dan-abramov' />
         </Flex>
       </Flex>
     </Box>

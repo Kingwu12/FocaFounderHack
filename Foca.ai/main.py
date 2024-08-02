@@ -20,7 +20,7 @@ def main():
 
 if __name__ == "__main__": 
     main()
-    
+
 # {ctrl + c} in terminal to stop script
 
 
