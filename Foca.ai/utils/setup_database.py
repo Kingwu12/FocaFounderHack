@@ -13,6 +13,7 @@ def setup_database():
             image_path TEXT,
             user_task TEXT,
             gpt_output BOOLEAN
+            
         )
     ''')
 

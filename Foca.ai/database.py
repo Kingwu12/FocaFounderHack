@@ -1,7 +1,6 @@
 import sqlite3
 import os
 
-
 # save the Analysis Result to a Database
 def save_to_database(timestamp, image_path, user_task, gpt_output):
     db_path = os.path.join(os.path.dirname(__file__), 'database.db')
