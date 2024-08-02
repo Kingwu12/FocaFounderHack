@@ -1,0 +1,10 @@
+# Ignore .env file
+.env
+.venv
+.base
+.myenv
+
+
+
+# Ignore Python cache files
+__pycache__/
