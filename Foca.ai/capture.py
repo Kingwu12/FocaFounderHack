@@ -10,11 +10,7 @@ def capture_screen():
         img = Image.frombytes('RGB', screenshot.size, screenshot.bgra, 'raw', 'BGRX')
         return img
 
-<<<<<<< HEAD
-def resize_image(img, max_size=(800, 800)):
-=======
 def resize_image(img, max_size=(400, 400)):
->>>>>>> origin/main
     img.thumbnail(max_size)
     return img
 
@@ -24,11 +20,7 @@ def convert_image_to_jpeg(img, jpeg_path):
 def start_capturing():
     img = capture_screen()
     timestamp = time.strftime('%Y-%m-%d_%H-%M-%S')
-<<<<<<< HEAD
-    screenshots_dir =  os.path.join(os.path.dirname(__file__), 'screenshots')
-=======
     screenshots_dir = os.path.join(os.path.dirname(__file__), '..', 'screenshots')
->>>>>>> origin/main
     os.makedirs(screenshots_dir, exist_ok=True)
     
     # Numbering of screenshots
