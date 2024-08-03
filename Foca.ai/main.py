@@ -1,8 +1,8 @@
 import time
 from capture import start_capturing
 from analyse import analyse_image
-from database import save_to_database
-from utils.setup_database import setup_database
+from database.database import save_to_database
+from database.utils.setup_database import setup_database
 
 def main():
     setup_database()  
