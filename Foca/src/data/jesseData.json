@@ -1,0 +1,26 @@
+{
+      "name": "Jesse Pinkman",
+      "username": "CapnCook",
+      "bio": "A resourceful partner in the world of chemistry and productivity.",
+      "avatarUrl": "/images/Jesse.jpg",
+      "buddies": 85,
+      "badges": [
+        { "label": "Street Smart", "color": "orange.300", "icon": "🧠" },
+        { "label": "Meth Chef", "color": "blue.400", "icon": "👨‍🍳" },
+        { "label": "Partner", "color": "green.200", "icon": "🤝" },
+        { "label": "Rebel", "color": "red.300", "icon": "🔥" },
+        { "label": "Jesse", "color": "blackAlpha.600", "icon": "⚫" }
+      ],
+      "posts": [
+        {
+          "task": "Cooked a new batch",
+          "time": "4 hours ago",
+          "input": "Perfected the recipe today, yo!"
+        },
+        {
+          "task": "Worked on distribution",
+          "time": "2 hours ago",
+          "input": "Set up new channels for distribution."
+        }
+      ]
+    }

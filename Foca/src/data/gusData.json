@@ -1,0 +1,26 @@
+{
+      "name": "Gustavo Fring",
+      "username": "Chickenman",
+      "bio": "A meticulous entrepreneur with a flair for productivity.",
+      "avatarUrl": "/images/ChickenMan.jpg",
+      "buddies": 245,
+      "badges": [
+        { "label": "Los Pollos Hermanos", "color": "yellow.300", "icon": "🐔" },
+        { "label": "Businessman", "color": "blue.200", "icon": "💼" },
+        { "label": "Meth Kingpin", "color": "red.500", "icon": "👑" },
+        { "label": "Perfectionist", "color": "gray.200", "icon": "🔬" },
+        { "label": "Gus", "color": "green.300", "icon": "🟢" }
+      ],
+      "posts": [
+        {
+          "task": "Managed business operations",
+          "time": "3 hours ago",
+          "input": "Focused on optimizing the supply chain today."
+        },
+        {
+          "task": "Reviewed financial reports",
+          "time": "2 hours ago",
+          "input": "Went through the quarterly financial statements."
+        }
+      ]
+    }
