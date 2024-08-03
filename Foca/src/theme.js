@@ -28,6 +28,15 @@ const components = {
     }),
   },
 
+  AvatarDrawer: {
+    baseStyle: (props) => ({
+      headerBgColor: mode('#4a5568', '#2d3748')(props),
+      headerTextColor: mode('white', 'whiteAlpha.900')(props),
+      dividerColor: mode('gray.300', 'gray.600')(props),
+      bodyBgColor: mode('gray.100', '#1a202c')(props),
+    }),
+  },
+
   UploadComponent: {
     baseStyle: (props) => ({
       bg: mode('gray.100', '#24292e')(props),

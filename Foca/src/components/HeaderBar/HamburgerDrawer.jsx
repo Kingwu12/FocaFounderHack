@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Drawer,
   DrawerBody,
@@ -12,9 +11,12 @@ import {
   Flex,
   Progress,
   Text,
+  VStack,
+  Divider,
   useStyleConfig,
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
+import { FaUser, FaTasks, FaClipboardList, FaCog, FaSignOutAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const HamburgerDrawer = () => {
@@ -23,8 +25,8 @@ const HamburgerDrawer = () => {
 
   // Mock data for demonstration
   const productivityGoal = {
-    goal: 8, // hours
-    completed: 5, // hours
+    goal: 4, // hours
+    completed: 3, // hours
   };
 
   const remainingTime = productivityGoal.goal - productivityGoal.completed;
@@ -43,18 +45,18 @@ const HamburgerDrawer = () => {
       </Box>
       <Drawer isOpen={isOpen} placement='left' onClose={onClose}>
         <DrawerOverlay>
-          <DrawerContent borderTopRightRadius='lg' borderBottomRightRadius='lg'>
+          <DrawerContent borderTopRightRadius='lg' borderBottomRightRadius='lg' maxW='400px'>
+            <DrawerCloseButton />
             <Box bg={styles.topBgColor} color={styles.topTextColor}>
               <Flex justifyContent='space-between' alignItems='center' pt={4} pl={4} pr={2}>
                 <Text fontSize='xl' fontWeight='bold'>
                   Foca
                 </Text>
-                <DrawerCloseButton position='relative' top='0' right='0' />
               </Flex>
               <Box p={4}>
                 <Flex justifyContent='space-between' alignItems='center'>
                   <Text fontWeight='bold' mb='1'>
-                    Today's Focus Goal
+                    Today&apos;s Focus Goal
                   </Text>
                   <Text fontWeight='bold'>
                     {Math.floor(remainingTime)}h {Math.floor((remainingTime % 1) * 60)}m to go
@@ -70,24 +72,39 @@ const HamburgerDrawer = () => {
                 </Box>
               </Box>
             </Box>
-            <Box h='1px' bg={styles.dividerColor} />
+            <Divider color={styles.dividerColor} />
             <Box bg={styles.bottomBgColor} p={4} flex='1'>
               <DrawerBody p={0}>
-                <Button w='100%' mb={4} onClick={onClose}>
-                  <Link to='/dashboard/username'>Focus Dashboard</Link>
-                </Button>
-                <Button w='100%' mb={4} onClick={onClose}>
-                  <Link to='/focusfeed/username'>Focus Feed</Link>
-                </Button>
-                <Button w='100%' mb={4} onClick={onClose}>
-                  <Link to='/profile/username'>Profile</Link>
-                </Button>
-                <Button w='100%' mb={4} onClick={onClose}>
-                  <Link to='/settings'>Settings</Link>
-                </Button>
-                <Button w='100%' onClick={onClose}>
-                  Logout
-                </Button>
+                <VStack align='stretch' spacing={4}>
+                  <Button variant='ghost' leftIcon={<FaUser />} justifyContent='flex-start' w='full' onClick={onClose}>
+                    <Link to='/dashboard/username'>Focus Dashboard</Link>
+                  </Button>
+                  <Button variant='ghost' leftIcon={<FaTasks />} justifyContent='flex-start' w='full' onClick={onClose}>
+                    <Link to='/focusfeed/username'>Focus Feed</Link>
+                  </Button>
+                  <Button
+                    variant='ghost'
+                    leftIcon={<FaClipboardList />}
+                    justifyContent='flex-start'
+                    w='full'
+                    onClick={onClose}
+                  >
+                    <Link to='/profile/username'>Profile</Link>
+                  </Button>
+                  <Button variant='ghost' leftIcon={<FaCog />} justifyContent='flex-start' w='full' onClick={onClose}>
+                    <Link to='/settings'>Settings</Link>
+                  </Button>
+                  <Divider />
+                  <Button
+                    variant='ghost'
+                    leftIcon={<FaSignOutAlt />}
+                    justifyContent='flex-start'
+                    w='full'
+                    onClick={onClose}
+                  >
+                    Logout
+                  </Button>
+                </VStack>
               </DrawerBody>
             </Box>
           </DrawerContent>

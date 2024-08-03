@@ -60,11 +60,11 @@ const TaskManager = () => {
     }));
 
   return (
-    <Box sx={styles.container} borderRadius='md' boxShadow='lg' w='400px' mx='auto' alignitems='flex-start'>
+    <Box sx={styles.container} borderRadius='md' boxShadow='lg' w='500px' mx='auto' alignitems='flex-start'>
       <Flex flexDir='column' p={4} sx={styles.header} pt={8} pb={8}>
         <Box borderRadius='md'>
           <Flex>
-            <Box fontWeight='bold'>Today's Tasks</Box>
+            <Box fontWeight='bold'>Today&apos;s Tasks</Box>
             <Spacer />
             <Button onClick={addTask} sx={styles.button}>
               Add

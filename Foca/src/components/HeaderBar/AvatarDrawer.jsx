@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Drawer,
   DrawerBody,
@@ -15,6 +14,7 @@ import {
   Button,
   useDisclosure,
   Flex,
+  useStyleConfig,
 } from '@chakra-ui/react';
 import { FaUser, FaTasks, FaClipboardList, FaCog, FaSignOutAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
@@ -22,6 +22,7 @@ import { useNavigate } from 'react-router-dom';
 const AvatarDrawer = ({ userData }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
+  const styles = useStyleConfig('AvatarDrawer');
 
   const handleProfileClick = () => {
     navigate(`/profile/${userData.username}`);
@@ -40,16 +41,16 @@ const AvatarDrawer = ({ userData }) => {
         <DrawerOverlay>
           <DrawerContent borderTopLeftRadius='lg' borderBottomLeftRadius='lg'>
             <DrawerCloseButton />
-            <DrawerHeader>
+            <DrawerHeader bg={styles.headerBgColor} color={styles.headerTextColor}>
               <Flex alignItems='center'>
                 <Avatar name={userData.name} src={userData.avatarUrl} size='lg' />
                 <Box ml={3}>
                   <Text fontWeight='bold'>{userData.username}</Text>
-                  <Text fontSize='sm'>{userData.fullName}</Text>
+                  <Text fontSize='sm'>{userData.name}</Text>
                 </Box>
               </Flex>
             </DrawerHeader>
-            <DrawerBody>
+            <DrawerBody bg={styles.bodyBgColor}>
               <VStack align='stretch' spacing={4}>
                 <Button
                   variant='ghost'
