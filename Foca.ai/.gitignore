@@ -1,8 +1,12 @@
 # Ignore .env file
 .env
 .venv
+<<<<<<< Updated upstream
 .idea
 
+=======
+.myenv
+>>>>>>> Stashed changes
 # Ignore Python cache files
 __pycache__/
 
