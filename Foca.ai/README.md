@@ -29,6 +29,5 @@ Follow these steps to set up the project on your local machine.
    pip install python-dotenv
    pip install psycopg2-binary
    pip install mysql-connector-python
-
-
+   python -m pip install flask
    ```

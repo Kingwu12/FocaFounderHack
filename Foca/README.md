@@ -29,6 +29,7 @@ npm install uuid
 To start the development server, run:
 
 ```bash
+python app.py
 npm run dev
 ```
 
