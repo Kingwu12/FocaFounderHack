@@ -30,7 +30,7 @@ def analyse_image(image_path, user_goal):
     lines = message_content.split('\n')
     explanation = lines[0].strip()  # The explanation
     result = lines[-2].strip()  # The true/false answer
-    app_name = lines[-1].strip() # The
+    app_name = lines[-1].strip() # The software running
     
     return result, explanation,app_name
 
