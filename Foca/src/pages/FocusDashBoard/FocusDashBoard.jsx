@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react';
-import TaskManager from '../../components/TaskManager';
 import { useParams } from 'react-router-dom';
+import TaskManager from '../../components/TaskManager/TaskManager';
 
 const FocusDashBoard = () => {
   const { username } = useParams();
