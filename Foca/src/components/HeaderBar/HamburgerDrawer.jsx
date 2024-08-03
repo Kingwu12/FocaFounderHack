@@ -54,7 +54,7 @@ const HamburgerDrawer = () => {
               </Flex>
               <Box p={4}>
                 <Flex justifyContent='space-between' alignItems='center' mb={4}>
-                  <Text fontWeight='bold'>Today’s Focus Goal</Text>
+                  <Text fontWeight='bold'>Today's Focus Goal</Text>
                   <Text fontWeight='bold'>
                     {Math.floor(remainingTime)}h {Math.floor((remainingTime % 1) * 60)}m to go
                   </Text>
@@ -73,7 +73,10 @@ const HamburgerDrawer = () => {
             <Box bg={styles.bottomBgColor} p={4} flex='1'>
               <DrawerBody p={0}>
                 <Button w='100%' mb={4} onClick={onClose}>
-                  <Link to='/'>Home</Link>
+                  <Link to='/dashboard/username'>Focus Dashboard</Link>
+                </Button>
+                <Button w='100%' mb={4} onClick={onClose}>
+                  <Link to='/focusfeed/username'>Focus Feed</Link>
                 </Button>
                 <Button w='100%' mb={4} onClick={onClose}>
                   <Link to='/profile/username'>Profile</Link>
