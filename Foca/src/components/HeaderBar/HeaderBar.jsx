@@ -1,5 +1,6 @@
 import { Box, Flex, Text, Avatar, Spacer, useStyleConfig } from '@chakra-ui/react';
 import ColorModeSwitcher from '../ColorModeSwitcher/ColorModeSwitcher';
+import userData from '../../data/userData';
 
 const HeaderBar = () => {
   const styles = useStyleConfig('HeaderBar');
@@ -16,7 +17,7 @@ const HeaderBar = () => {
             <ColorModeSwitcher />
           </Box>
           <Spacer />
-          <Avatar name='John Doe' src='https://bit.ly/dan-abramov' />
+          <Avatar name={userData.name} src={userData.avatarUrl} />
         </Flex>
       </Flex>
     </Box>

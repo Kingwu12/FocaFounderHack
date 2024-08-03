@@ -1,0 +1,15 @@
+
+{
+  "name": "Heisenburg",
+  "bio": "A passionate chemist and productivity enthusiast.",
+  "avatarUrl": "/images/Heisenberg.jpg",
+  "buddies": 133,
+  "badges": [
+    { "label": "egghead", "color": "gray.200", "icon": "🔘" },
+    { "label": "Gray Matter Technologies", "color": "pink.200", "icon": "🍩" },
+    { "label": "Teacher", "color": "gray.200", "icon": "📜" },
+    { "label": "Boss", "color": "green.200", "icon": "🐱" },
+    { "label": "Walt", "color": "blackAlpha.800", "icon": "⚫" }
+  ]
+}
+
