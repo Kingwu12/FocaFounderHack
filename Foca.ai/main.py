@@ -10,10 +10,7 @@ def main():
     try:
         while True:
             image_path = start_capturing()
-<<<<<<< Updated upstream
-=======
             #result='True'
->>>>>>> Stashed changes
             result, explaination = analyse_image(image_path, user_goal)
             save_to_database(time.strftime('%Y-%m-%d_%H-%M-%S'), image_path, user_goal, result)
             print(f"Explanation: {explaination}")  # DEBUGGING: print the explanation from OpenAI API response

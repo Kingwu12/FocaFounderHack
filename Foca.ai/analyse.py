@@ -42,18 +42,6 @@ def analyse_image(image_path, user_goal):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 # sample openai API response: 
 # {
 #   "id": "chatcmpl-123",
