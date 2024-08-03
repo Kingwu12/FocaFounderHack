@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<FocusDashBoard />} />
         <Route path='/auth' element={<AuthPage />} />
-        <Route path='/*' element={<ProfilePage />} />
+        <Route path='/profile/:username' element={<ProfilePage />} />
       </Routes>
     </PageLayout>
   );

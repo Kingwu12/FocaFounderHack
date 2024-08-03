@@ -21,6 +21,7 @@ git clone https://github.com/kingwu12/foca.git
 npm install
 npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion 
 npm install @chakra-ui/icons
+npm install react-icons
 
 ```
 

@@ -2,9 +2,11 @@ import { Box, Heading, Text, Avatar, Tabs, TabList, TabPanels, Tab, TabPanel, Fl
 import ProfileTab from '../../components/Profile/ProfileTab';
 import ActivityTab from '../../components/Profile/ActivityTab';
 import Badges from '../../components/Profile/Badges';
+import { useParams } from 'react-router-dom';
 import userData from '../../data/userData';
 
 const ProfilePage = () => {
+  const { username } = useParams();
   return (
     <Box p={5} w='900px' mx='auto'>
       <Box display='flex' alignItems='center' mb={6}>
@@ -12,7 +14,7 @@ const ProfilePage = () => {
         <Box>
           <Flex alignItems='center' mb={2}>
             <Heading as='h2' size='lg' mr={4}>
-              {userData.name}
+              {userData.username}
             </Heading>
             <Flex alignItems='center'>
               <Image src='/images/ChickenMan.jpg' borderRadius='full' boxSize='20px' mr='-10px' />
