@@ -1,5 +1,5 @@
 import {Flex} from '@chakra-ui/react';
-import TaskManager from '../../components/TaskManager';
+import TaskManager from '../../components/TaskManager/TaskManager';
 
 export const HomePage = () => {
 
