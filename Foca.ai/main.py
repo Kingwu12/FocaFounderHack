@@ -11,17 +11,13 @@ def main():
     try:
         while True:
             image_path = start_capturing()
-
             user_is_productive,explanation,app_name = analyse_image(image_path, user_goal)
             
-          
             save_to_database(time.strftime('%Y-%m-%d_%H-%M-%S'), image_path, user_goal, user_is_productive,explanation,app_name)
             #print(f'true or false {result}')
             #print(f'raw explanation {explanation}')
             #print(f"User on task: {user_is_productive}")
-            
-
-
+        
             #result='True'
             time.sleep(5)
     except KeyboardInterrupt:
