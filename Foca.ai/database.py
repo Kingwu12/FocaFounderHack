@@ -7,8 +7,10 @@ def save_to_database(timestamp, image_path, user_task, gpt_output):
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     cursor.execute('''
-        INSERT INTO productivity_data (timestamp, image_path, user_task, gpt_output)
+        INSERT INTO productivity_data (timestamp, image_path, user_task, gpt_output,image BLOB )
         VALUES (?, ?, ?, ?)
     ''', (timestamp, image_path, user_task, gpt_output))
     conn.commit()
     conn.close()
+
+
