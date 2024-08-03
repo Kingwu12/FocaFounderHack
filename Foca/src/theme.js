@@ -11,6 +11,7 @@ const styles = {
 };
 
 const components = {
+  
   HeaderBar: {
     baseStyle: (props) => ({
       bg: mode('#f6f8fa', '#24292e')(props),
@@ -18,6 +19,16 @@ const components = {
       borderBottom: `1px solid ${mode('#d1d5da', '#586069')(props)}`,
     }),
   },
+
+  HamburgerDrawer: {
+    baseStyle: (props) => ({
+      topBgColor: mode('gray.700', 'gray.200')(props),
+      topTextColor: mode('white', 'gray.800')(props),
+      dividerColor: mode('gray.300', 'gray.600')(props),
+      bottomBgColor: mode('white', 'gray.800')(props),
+    }),
+  },
+
   UploadComponent: {
     baseStyle: (props) => ({
       bg: mode('#ffffff', '#24292e')(props),
