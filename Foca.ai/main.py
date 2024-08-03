@@ -11,6 +11,7 @@ def main():
     try:
         while True:
             image_path = start_capturing()
+<<<<<<< HEAD
             user_is_productive,explanation,app_name = analyse_image(image_path, user_goal)
             
           
@@ -19,13 +20,23 @@ def main():
             #print(f'raw explanation {explanation}')
             #print(f"User on task: {user_is_productive}")
             
+=======
+<<<<<<< Updated upstream
+=======
+            #result='True'
+>>>>>>> Stashed changes
+            result, explaination = analyse_image(image_path, user_goal)
+            save_to_database(time.strftime('%Y-%m-%d_%H-%M-%S'), image_path, user_goal, result)
+            print(f"Explanation: {explaination}")  # DEBUGGING: print the explanation from OpenAI API response
+            print(f"User on task: {result}")
+>>>>>>> origin/main
             time.sleep(5)
     except KeyboardInterrupt:
             print("Script terminated by user. Exiting...")
 
 if __name__ == "__main__": 
     main()
-    
+
 # {ctrl + c} in terminal to stop script
 
 

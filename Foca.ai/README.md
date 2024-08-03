@@ -27,8 +27,8 @@ Follow these steps to set up the project on your local machine.
    python3 -m pip install --upgrade Pillow
    pip install --upgrade openai
    pip install python-dotenv
-<<<<<<< HEAD
+   pip install psycopg2-binary
+   pip install mysql-connector-python
 
-=======
->>>>>>> origin/main
+
    ```
