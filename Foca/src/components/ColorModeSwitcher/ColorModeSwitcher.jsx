@@ -8,6 +8,7 @@ const ColorModeSwitcher = () => {
       aria-label='Toggle color mode'
       icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
       onClick={toggleColorMode}
+      size={'sm'}
     />
   );
 };
