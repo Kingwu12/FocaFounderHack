@@ -6,6 +6,7 @@ export const HomePage = () => {
   return (
     <Flex w='100vw' flexDir='col' h="100%">
       <TaskManager />
+      <Timer/>
     </Flex>
   );
 };
