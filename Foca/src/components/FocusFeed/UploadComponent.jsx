@@ -29,7 +29,7 @@ const UploadComponent = () => {
   const styles = useStyleConfig('UploadComponent');
 
   return (
-    <Box __css={styles} p={3} borderRadius='sm' boxShadow='sm' w='100%' maxW='500px' mx='auto'>
+    <Box __css={styles} p={3} borderRadius='sm' boxShadow='sm' w='100%' mx='auto'>
       <Flex mb={2}>
         <Button size='sm' leftIcon={<FaListAlt />} variant='outline' mr={2}>
           Select Task
@@ -41,7 +41,7 @@ const UploadComponent = () => {
           Attach Link
         </Button>
       </Flex>
-      <Flex align='center' mb={2}>
+      <Flex align='flex-start' mb={2}>
         <Avatar name={userData.name} src={userData.avatarUrl} size='sm' mr={2} />
         <Textarea
           placeholder={`What task did you complete today, ${userData.name}?`}

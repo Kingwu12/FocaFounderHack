@@ -1,6 +1,6 @@
 
 {
-  "name": "Walter White",
+  "name": "Wlter White",
   "username": "Heisenberg",
   "bio": "A passionate chemist and productivity enthusiast.",
   "avatarUrl": "/images/Heisenberg.jpg",
@@ -11,6 +11,18 @@
     { "label": "Teacher", "color": "gray.200", "icon": "📜" },
     { "label": "Boss", "color": "green.200", "icon": "🐱" },
     { "label": "Walt", "color": "blackAlpha.800", "icon": "⚫" }
-  ]
+  ],
+  "posts": [
+        {
+          "task": "Completed chemistry experiment",
+          "time": "2 hours ago",
+          "input": "I worked on a new chemical reaction today."
+        },
+        {
+          "task": "Read a scientific paper",
+          "time": "1 hour ago",
+          "input": "Read an interesting paper on chemical bonds."
+        }
+      ]
 }
 

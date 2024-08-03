@@ -44,17 +44,19 @@ const HamburgerDrawer = () => {
       </Box>
       <Drawer isOpen={isOpen} placement='left' onClose={onClose}>
         <DrawerOverlay>
-          <DrawerContent borderTopRightRadius='md' borderBottomRightRadius='md'>
+          <DrawerContent borderTopRightRadius='lg' borderBottomRightRadius='lg'>
             <Box bg={styles.topBgColor} color={styles.topTextColor}>
-              <Flex justifyContent='space-between' alignItems='center' p={4} pl={4} pr={2}>
+              <Flex justifyContent='space-between' alignItems='center' pt={4} pl={4} pr={2}>
                 <Text fontSize='xl' fontWeight='bold'>
                   Foca
                 </Text>
                 <DrawerCloseButton position='relative' top='0' right='0' />
               </Flex>
               <Box p={4}>
-                <Flex justifyContent='space-between' alignItems='center' mb={4}>
-                  <Text fontWeight='bold'>Today's Focus Goal</Text>
+                <Flex justifyContent='space-between' alignItems='center'>
+                  <Text fontWeight='bold' mb='1'>
+                    Today's Focus Goal
+                  </Text>
                   <Text fontWeight='bold'>
                     {Math.floor(remainingTime)}h {Math.floor((remainingTime % 1) * 60)}m to go
                   </Text>

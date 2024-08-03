@@ -11,7 +11,6 @@ const styles = {
 };
 
 const components = {
-  
   HeaderBar: {
     baseStyle: (props) => ({
       bg: mode('#f6f8fa', '#24292e')(props),
@@ -22,16 +21,16 @@ const components = {
 
   HamburgerDrawer: {
     baseStyle: (props) => ({
-      topBgColor: mode('gray.700', 'gray.200')(props),
-      topTextColor: mode('white', 'gray.800')(props),
+      topBgColor: mode('#4a5568', '#2d3748')(props), // Darker shade
+      topTextColor: mode('white', 'whiteAlpha.900')(props),
       dividerColor: mode('gray.300', 'gray.600')(props),
-      bottomBgColor: mode('white', 'gray.800')(props),
+      bottomBgColor: mode('gray.100', '#1a202c')(props), // Lighter shade
     }),
   },
 
   UploadComponent: {
     baseStyle: (props) => ({
-      bg: mode('#ffffff', '#24292e')(props),
+      bg: mode('gray.100', '#24292e')(props), // Darker shade of white in light mode
       color: mode('gray.800', 'whiteAlpha.900')(props),
       borderColor: mode('gray.200', 'gray.600')(props),
       boxShadow: 'md',
@@ -42,7 +41,7 @@ const components = {
       maxW: '600px',
       mx: 'auto',
       Textarea: {
-        bg: mode('gray.100', 'gray.800')(props),
+        bg: mode('gray.200', 'gray.800')(props), // Adjusted for contrast
         color: mode('gray.800', 'whiteAlpha.900')(props),
         _focus: {
           borderColor: mode('gray.300', 'gray.600')(props),

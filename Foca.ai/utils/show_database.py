@@ -2,6 +2,7 @@ import sqlite3
 import os
 import pandas as pd
 
+
 def query_database():
     db_path = os.path.join(os.path.dirname(__file__), '..', 'database.db')
 

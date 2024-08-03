@@ -12,9 +12,12 @@ def setup_database():
             timestamp TEXT,
             image_path TEXT,
             user_task TEXT,
-            gpt_output BOOLEAN
+            user_is_productive BOOLEAN,
+            explaination TEXT
+            app_name TEXT
         )
     ''')
 
+    
     conn.commit()
     conn.close()

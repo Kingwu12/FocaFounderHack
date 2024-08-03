@@ -4,9 +4,12 @@ import ActivityTab from '../../components/Profile/ActivityTab';
 import Badges from '../../components/Profile/Badges';
 import { useParams } from 'react-router-dom';
 import userData from '../../data/userData';
+import gusData from '../../data/gusData';
+import jesseData from '../../data/jesseData';
 
 const ProfilePage = () => {
   const { username } = useParams();
+
   return (
     <Box p={5} w='900px' mx='auto'>
       <Box display='flex' alignItems='center' mb={6}>
@@ -17,8 +20,8 @@ const ProfilePage = () => {
               {userData.username}
             </Heading>
             <Flex alignItems='center'>
-              <Image src='/images/ChickenMan.jpg' borderRadius='full' boxSize='20px' mr='-10px' />
-              <Image src='/images/Jesse.jpg' borderRadius='full' boxSize='20px' mr={2} />
+              <Image src={jesseData.avatarUrl} borderRadius='full' boxSize='20px' mr='-10px' />
+              <Image src={gusData.avatarUrl} borderRadius='full' boxSize='20px' mr={2} />
               <Text>{userData.buddies} buddies</Text>
             </Flex>
           </Flex>
