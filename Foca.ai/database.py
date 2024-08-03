@@ -12,3 +12,5 @@ def save_to_database(timestamp, image_path, user_task, gpt_output):
     ''', (timestamp, image_path, user_task, gpt_output))
     conn.commit()
     conn.close()
+
+
