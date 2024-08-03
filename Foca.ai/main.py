@@ -23,12 +23,6 @@ def main():
 
 
             #result='True'
-
-            result, explaination = analyse_image(image_path, user_goal)
-            save_to_database(time.strftime('%Y-%m-%d_%H-%M-%S'), image_path, user_goal, result)
-            print(f"Explanation: {explaination}")  # DEBUGGING: print the explanation from OpenAI API response
-            print(f"User on task: {result}")
-
             time.sleep(5)
     except KeyboardInterrupt:
             print("Script terminated by user. Exiting...")
