@@ -1,19 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { EditIcon } from '@chakra-ui/icons';
 import {
-  FormControl,
-  FormLabel,
-  Textarea,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
   useDisclosure,
   IconButton,
-  Input,
   Flex,
   Stack,
   Accordion,
@@ -24,9 +13,12 @@ import {
   Spacer,
   Box,
   Button,
+  useStyleConfig,
 } from '@chakra-ui/react';
+import TaskManagerModal from './TaskManagerModal';
 
 const TaskManager = () => {
+  const styles = useStyleConfig('TaskManager');
   const [taskList, setTaskList] = useState([
     {
       index: 1,
@@ -44,110 +36,86 @@ const TaskManager = () => {
       title: '',
       desc: '',
     };
-    setTaskList([...taskList, newTask]);
-    setTaskCount(taskCount + 1);
+    setTaskList((prevTaskList) => [...prevTaskList, newTask]);
+    setTaskCount((prevTaskCount) => prevTaskCount + 1);
   };
 
   const editTask = () => {
-    let tempTaskList = taskList.slice();
-    tempTaskList[tempTaskList.findIndex((task) => task.index == selectedTask.index)] = selectedTask;
-    setTaskList(tempTaskList);
+    setTaskList((prevTaskList) =>
+      prevTaskList.map((task) => (task.index === selectedTask.index ? selectedTask : task))
+    );
     console.log(taskList);
   };
 
-  const handleTitleSelect = (e) =>
-    setSelectedTask((selectedTask) => {
-      selectedTask.title = e.target.value;
-      return selectedTask;
-    });
+  const handleTitleChange = (e) =>
+    setSelectedTask((prevTask) => ({
+      ...prevTask,
+      title: e.target.value,
+    }));
 
-  const handleDescSelect = (e) =>
-    setSelectedTask((selectedTask) => {
-      selectedTask.desc = e.target.value;
-      return selectedTask;
-    });
+  const handleDescChange = (e) =>
+    setSelectedTask((prevTask) => ({
+      ...prevTask,
+      desc: e.target.value,
+    }));
 
   return (
-    <>
-      <Box bgColor='white' h='100%' w='300px'>
-        <Flex flexDir='column'>
-          <Box bg='#542BD1' h='120px' w='100%' p={2} fontSize={20} fontWeight='bold'>
-            <Flex>
-              <Box>Today's Tasks</Box>
-              <Spacer />
-              <Button onClick={addTask}>Add</Button>
-            </Flex>
-          </Box>
-        </Flex>
-        <Stack p={2} direction='column' spacing='5px'>
+    <Box sx={styles.container} borderRadius='md' boxShadow='lg' w='400px' mx='auto' alignitems='flex-start'>
+      <Flex flexDir='column' p={4} sx={styles.header} pt={8} pb={8}>
+        <Box borderRadius='md'>
+          <Flex>
+            <Box fontWeight='bold'>Today's Tasks</Box>
+            <Spacer />
+            <Button onClick={addTask} sx={styles.button}>
+              Add
+            </Button>
+          </Flex>
+        </Box>
+      </Flex>
+
+      <Box sx={styles.content} p={4} h='100%'>
+        <Stack direction='column' spacing='5px'>
           {taskList.map((task) => (
-            <>
-              <Accordion allowToggle color='black' border='1px' borderRadius='8px' borderColor='#D9D9D9'>
-                <AccordionItem>
+            <Accordion key={task.index} allowToggle sx={styles.accordionItem} border='2px solid' borderRadius={3}>
+              <AccordionItem>
+                <Flex alignItems='center'>
+                  <Box p='6px' fontWeight='bold' flex='1'>
+                    {task.title || `Task ${task.index}`}
+                  </Box>
                   <Flex>
-                    <Box p='6px' fontWeight='bold'>
-                      {task.title.length == 0 ? `Task ${task.index}` : task.title}
-                    </Box>
-                    <Spacer />
                     <IconButton
-                      color='black'
+                      sx={styles.accordionItem}
                       icon={<EditIcon />}
                       onClick={() => {
                         setSelectedTask(task);
                         onOpen();
                       }}
-                    ></IconButton>
-                    <Box>
-                      <AccordionButton>
-                        <AccordionIcon />
-                      </AccordionButton>
-                    </Box>
+                      mr={2}
+                    />
+                    <AccordionButton>
+                      <AccordionIcon />
+                    </AccordionButton>
                   </Flex>
-                  <AccordionPanel pb={4}>
-                    <Box>{task.desc.length == 0 ? 'no description' : task.desc}</Box>
-                  </AccordionPanel>
-                </AccordionItem>
-              </Accordion>
-            </>
+                </Flex>
+                <AccordionPanel pb={4}>
+                  <Box>{task.desc || 'no description'}</Box>
+                </AccordionPanel>
+              </AccordionItem>
+            </Accordion>
           ))}
         </Stack>
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Edit Task {selectedTask.index}</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <FormControl>
-                <FormLabel>Task Title</FormLabel>
-                <Stack spacing='10px'>
-                  <Input placeholder='Title' defaultValue={selectedTask.title} onChange={handleTitleSelect} />
-                  <Textarea
-                    placeholder='Task Description'
-                    defaultValue={selectedTask.desc}
-                    onChange={handleDescSelect}
-                  />
-                </Stack>
-              </FormControl>
-            </ModalBody>
-            <ModalFooter>
-              <Button
-                colorScheme='blue'
-                mr={3}
-                onClick={() => {
-                  onClose();
-                  editTask();
-                }}
-              >
-                Save
-              </Button>
-              <Button variant='ghost' onClick={onClose}>
-                Cancel
-              </Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
       </Box>
-    </>
+
+      {/* Modal Section */}
+      <TaskManagerModal
+        isOpen={isOpen}
+        onClose={onClose}
+        selectedTask={selectedTask}
+        handleTitleChange={handleTitleChange}
+        handleDescChange={handleDescChange}
+        editTask={editTask}
+      />
+    </Box>
   );
 };
 
