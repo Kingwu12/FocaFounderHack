@@ -12,9 +12,17 @@ import {
   Box,
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
+import { useNavigate } from 'react-router-dom';
+import userData from '../../data/userData'; // Ensure you have access to userData
 
 const HamburgerDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const navigate = useNavigate();
+
+  const handleHomeClick = () => {
+    navigate(`/dashboard/${userData.username}`);
+    onClose();
+  };
 
   return (
     <>
@@ -34,7 +42,7 @@ const HamburgerDrawer = () => {
             <DrawerCloseButton />
             <DrawerHeader>Foca</DrawerHeader>
             <DrawerBody>
-              <Button w='100%' mb={4} onClick={onClose}>
+              <Button w='100%' mb={4} onClick={handleHomeClick}>
                 Home
               </Button>
               <Button w='100%' mb={4} onClick={onClose}>

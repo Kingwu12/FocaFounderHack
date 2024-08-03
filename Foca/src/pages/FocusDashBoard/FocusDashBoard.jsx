@@ -1,11 +1,13 @@
-// HOMEPAGE NAME CHANGE
 import { Flex } from '@chakra-ui/react';
 import TaskManager from '../../components/TaskManager';
+import { useParams } from 'react-router-dom';
 
-export const FocusDashBoard = () => {
+const FocusDashBoard = () => {
+  const { username } = useParams();
+
   return (
-    <Flex w='100vw' flexDir='col' h='100%'>
-      <TaskManager />
+    <Flex w='100vw' flexDir='column' h='100%'>
+      <TaskManager username={username} />
     </Flex>
   );
 };

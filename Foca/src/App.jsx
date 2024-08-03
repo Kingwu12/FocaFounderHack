@@ -9,7 +9,7 @@ function App() {
   return (
     <PageLayout>
       <Routes>
-        <Route path='/' element={<FocusDashBoard />} />
+        <Route path='/dashboard/:username' element={<FocusDashBoard />} />
         <Route path='/auth' element={<AuthPage />} />
         <Route path='/profile/:username' element={<ProfilePage />} />
       </Routes>
