@@ -38,7 +38,7 @@ const AvatarDrawer = ({ userData }) => {
       />
       <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
         <DrawerOverlay>
-          <DrawerContent>
+          <DrawerContent borderTopLeftRadius='lg' borderBottomLeftRadius='lg'>
             <DrawerCloseButton />
             <DrawerHeader>
               <Flex alignItems='center'>

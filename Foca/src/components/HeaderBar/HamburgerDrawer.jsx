@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
-import userData from '../../data/userData'; // Ensure you have access to userData
+import userData from '../../data/userData';
 
 const HamburgerDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -21,6 +21,11 @@ const HamburgerDrawer = () => {
 
   const handleHomeClick = () => {
     navigate(`/dashboard/${userData.username}`);
+    onClose();
+  };
+
+  const handleFocusFeedClick = () => {
+    navigate(`/focusfeed/${userData.username}`);
     onClose();
   };
 
@@ -38,12 +43,15 @@ const HamburgerDrawer = () => {
       </Box>
       <Drawer isOpen={isOpen} placement='left' onClose={onClose}>
         <DrawerOverlay>
-          <DrawerContent borderTopRightRadius='md' borderBottomRightRadius='md'>
+          <DrawerContent borderTopRightRadius='lg' borderBottomRightRadius='lg'>
             <DrawerCloseButton />
             <DrawerHeader>Foca</DrawerHeader>
             <DrawerBody>
               <Button w='100%' mb={4} onClick={handleHomeClick}>
                 Home
+              </Button>
+              <Button w='100%' mb={4} onClick={handleFocusFeedClick}>
+                Focus Feed
               </Button>
               <Button w='100%' mb={4} onClick={onClose}>
                 Profile

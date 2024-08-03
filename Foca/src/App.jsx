@@ -4,6 +4,7 @@ import AuthPage from './pages/AuthPage/AuthPage';
 import PageLayout from './layouts/PageLayout';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import FocusDashBoard from './pages/FocusDashBoard/FocusDashBoard';
+import FocusFeedPage from './pages/FocusFeedPage/FocusFeedPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path='/dashboard/:username' element={<FocusDashBoard />} />
         <Route path='/auth' element={<AuthPage />} />
         <Route path='/profile/:username' element={<ProfilePage />} />
+        <Route path='/focusfeed/:username' element={<FocusFeedPage />} />
       </Routes>
     </PageLayout>
   );
