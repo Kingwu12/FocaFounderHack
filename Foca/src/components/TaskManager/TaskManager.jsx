@@ -17,8 +17,8 @@ const TaskManager = () => {
 
   const [taskList, setTaskList] = useState([{
     index: 1,
-    title: 'Task ' + 1,
-    desc: 'add a description'
+    title: '',
+    desc: ''
   }]);
   const [taskCount, setTaskCount] = useState(1);
   const [selectedTask, setSelectedTask] = useState(taskList[0]);
@@ -27,8 +27,8 @@ const TaskManager = () => {
   const addTask = () => {
     const newTask = {
       index: taskCount + 1,
-      title: 'Task ' + (taskCount + 1),
-      desc: 'add a description'
+      title: '',
+      desc: ''
     }
     setTaskList([...taskList, newTask]);
     setTaskCount(taskCount + 1);
@@ -72,7 +72,7 @@ const TaskManager = () => {
                 <AccordionItem>
                   <Flex>
                     <Box p="6px" fontWeight='bold'>
-                      {task.title}
+                      {(task.title.length == 0) ? `Task ${task.index}` : task.title}
                     </Box>
                     <Spacer />
                     <IconButton color="black" icon={<EditIcon />}
@@ -88,7 +88,7 @@ const TaskManager = () => {
                     </Box>
                   </Flex>
                   <AccordionPanel pb={4}>
-                    <Box>{task.desc}</Box>
+                    <Box>{(task.desc.length == 0) ? 'no description' : task.desc}</Box>
                   </AccordionPanel>
                 </AccordionItem>
               </Accordion>
