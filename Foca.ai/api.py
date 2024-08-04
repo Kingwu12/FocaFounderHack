@@ -1,5 +1,5 @@
 from flask import Flask, request as req
-
+from getStat.calculate_time_spent import *
 app = Flask(__name__)
 
 @app.post("/analysis")
