@@ -1,9 +1,5 @@
-from flask import Flask, request, jsonify, send_file
-import threading
-import time
-import matplotlib.pyplot as plt
-import io
-
+from flask import Flask, request as req
+from getStat.calculate_time_spent import *
 app = Flask(__name__)
 
 # Global variable to hold the timer state

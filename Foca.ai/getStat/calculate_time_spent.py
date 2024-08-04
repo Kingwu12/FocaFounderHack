@@ -49,24 +49,23 @@ def plot_app_percentages(percentages):
     num_bars = len(app_names)
     colors = plt.cm.Purples(np.linspace(0.4, 0.8, num_bars))  # Simple gradient from light to dark purple
 
-    # Create a bar chart with the gradient colors
-    fig, ax = plt.subplots(figsize=(12, 6))
-    bars = ax.bar(app_names, percentages, color=colors, edgecolor='none', width=1.0)  # Set width to 1.0 to remove gaps
+    # Create a horizontal bar chart with the gradient colors
+    fig, ax = plt.subplots(figsize=(12, 8))  # Adjusted figsize for horizontal bars
+    bars = ax.barh(app_names, percentages, color=colors, edgecolor='none')  # Use barh for horizontal bars
 
     # Add labels and title
-    ax.set_xlabel('Application Name', fontsize=12)
-    ax.set_ylabel('Percentage (%)', fontsize=12)
+    ax.set_xlabel('Percentage (%)', fontsize=12)
+    ax.set_ylabel('Application Name', fontsize=12)
     ax.set_title('Application Usage Percentages', fontsize=14)
-    ax.set_xticklabels(app_names, rotation=45, ha='right', fontsize=10)
-    ax.grid(axis='y', linestyle='--', alpha=0.7)
+    ax.grid(axis='x', linestyle='--', alpha=0.7)
 
-    # Add value labels on top of bars
+    # Add value labels on the bars
     for bar in bars:
-        yval = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width()/2, yval + 1, f'{yval:.2f}%', ha='center', va='bottom', fontsize=10)
+        ax.text(bar.get_width() + 1, bar.get_y() + bar.get_height()/2, f'{bar.get_width():.2f}%', va='center', fontsize=10)
 
     plt.tight_layout()
     plt.show()
+()
 
 # Get app percentages and plot
 percentages = get_app_percentages()
