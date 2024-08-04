@@ -3,6 +3,7 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from 'react';
 
+
 const Timer = (props) => {
   const MAX_SECS = 59;
   const MAX_MINS = 179;
@@ -24,7 +25,6 @@ const Timer = (props) => {
 
       return () => clearInterval(timerId);
     } else if (time == 0 && sessionActive) {
-      console.log('ring ding ding')
       setSessionActive(false);
     }
   }, [time, sessionActive]);
@@ -68,13 +68,23 @@ const Timer = (props) => {
                 )}
               </Flex>
             </Box>
-            <Button
-              bg="gray.200"
-              onClick={() => {
-                startTimer(0, 10);
-                setSessionActive(true);
-              }}
-            >START</Button>
+            {sessionActive ? (
+              <Button
+                bg="red.200"
+                onClick={() => {
+                  setTime(0);
+                }}
+              >STOP</Button>
+
+            ) : (
+              <Button
+                bg="gray.200"
+                onClick={() => {
+                  startTimer();
+                  setSessionActive(true);
+                }}
+              >START</Button>
+            )}
             <Box>
               <Flex alignItems='center'>
                 <Box p="5px">Task</Box>
@@ -87,6 +97,9 @@ const Timer = (props) => {
               </Flex>
             </Box>
           </Flex>
+        </Box>
+        <Box w="500px">
+          <Image src='../../../public/images/data.png' />
         </Box>
       </AbsoluteCenter>
     </Box>
