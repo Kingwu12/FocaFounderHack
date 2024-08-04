@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { EditIcon } from '@chakra-ui/icons'
 import {
   FormControl,
@@ -10,35 +10,29 @@ import {
   ModalHeader,
   ModalFooter,
   ModalBody,
-  ModalCloseButton, useDisclosure, IconButton, Input, EditableInput, ButtonGroup, Flex, Stack, Accordion, AccordionItem, AccordionIcon, AccordionButton, AccordionPanel, Spacer, Box, Button
+  ModalCloseButton, useDisclosure, IconButton, Input, Flex, Stack, Accordion, AccordionItem, AccordionIcon, AccordionButton, AccordionPanel, Spacer, Box, Button
 } from '@chakra-ui/react';
 
-const TaskManager = () => {
+const TaskManager = (props) => {
 
-  const [taskList, setTaskList] = useState([{
-    index: 1,
-    title: '',
-    desc: ''
-  }]);
-  const [taskCount, setTaskCount] = useState(1);
-  const [selectedTask, setSelectedTask] = useState(taskList[0]);
+  const [selectedTask, setSelectedTask] = useState(props.taskList[0]);
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const addTask = () => {
     const newTask = {
-      index: taskCount + 1,
+      index: props.taskCount + 1,
       title: '',
       desc: ''
     }
-    setTaskList([...taskList, newTask]);
-    setTaskCount(taskCount + 1);
+    props.setTaskList([...props.taskList, newTask]);
+    props.setTaskCount(props.taskCount + 1);
   }
 
   const editTask = () => {
-    let tempTaskList = taskList.slice();
+    let tempTaskList = props.taskList.slice();
     tempTaskList[tempTaskList.findIndex(task => task.index == selectedTask.index)] = selectedTask;
-    setTaskList(tempTaskList);
-    console.log(taskList);
+    props.setTaskList(tempTaskList);
+    console.log(props.taskList);
   }
 
   const handleTitleSelect = (e) => setSelectedTask((selectedTask) => {
@@ -66,7 +60,7 @@ const TaskManager = () => {
           </Box>
         </Flex>
         <Stack p={2} direction='column' spacing='5px'>
-          {taskList.map(task => (
+          {props.taskList.map(task => (
             <>
               <Accordion allowToggle color='black' border='1px' borderRadius='8px' borderColor='#D9D9D9'>
                 <AccordionItem>
