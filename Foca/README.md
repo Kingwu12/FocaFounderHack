@@ -22,12 +22,14 @@ npm install
 npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion 
 npm install @chakra-ui/icons
 npm install react-icons
+npm install uuid
 
 ```
 
 To start the development server, run:
 
 ```bash
+python app.py
 npm run dev
 ```
 

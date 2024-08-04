@@ -24,30 +24,15 @@ def analyse_image(image_path, user_goal):
             },
         ]
     )
-    
     message_content =  response.choices[0].message.content.strip().lower()
-    
-    
-    # # DEBUGGER - shows explaination and result (true/false) from the API response
-    # print("API Response:", response)
-    # # Access the response correctly 
-    # message_content = response.choices[0].message.content.strip().lower()
-    print("Message Content:", message_content)
     
     # Split the response into explanation and true/false answer
     lines = message_content.split('\n')
     explanation = lines[0].strip()  # The explanation
     result = lines[-2].strip()  # The true/false answer
-    app_name = lines[-1].strip() # The
+    app_name = lines[-1].strip() # The software running
     
     return result, explanation,app_name
-
-
-
-
-
-
-
 
 
 # sample openai API response: 
