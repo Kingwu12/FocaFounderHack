@@ -128,4 +128,6 @@ productivity_data = get_productivity_data()
 for row in productivity_data:
     print(f"Productive: {row[0]}, Count: {row[1]}")  
 
+
+
 plot_productivity_data(productivity_data)
