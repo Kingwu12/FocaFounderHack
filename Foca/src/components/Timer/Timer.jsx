@@ -1,5 +1,5 @@
 import {
-  Input, Flex, Box, AbsoluteCenter, Button, Select
+  Input, Flex, Box, AbsoluteCenter, Button, Select, Image
 } from "@chakra-ui/react";
 import { useEffect, useState } from 'react';
 
@@ -12,6 +12,7 @@ const Timer = (props) => {
   const [minutes, setMinutes] = useState(59);
   const [time, setTime] = useState(0);
   const [sessionActive, setSessionActive] = useState(false);
+  const [sessionComplete, setSessionComplete] = useState(false);
 
   const startTimer = () => {
     setTime(minutes * 60 + seconds)
@@ -26,6 +27,7 @@ const Timer = (props) => {
       return () => clearInterval(timerId);
     } else if (time == 0 && sessionActive) {
       setSessionActive(false);
+      setSessionComplete(true);
     }
   }, [time, sessionActive]);
 
@@ -49,8 +51,8 @@ const Timer = (props) => {
 
   return (
     <Box position='relative' h='100%' w='100%' >
-      <AbsoluteCenter axis='both'>
-        <Box color='black' border='1px' borderRadius='5px' bg='white' w='500px' h='300px' fontWeight='bold'>
+      <Flex align="center" flexDir="column">
+        <Box color='black' border='1px' borderRadius='5px' bg='white' w='500px' h='250px' fontWeight='bold'>
           <Flex alignItems='center' flexDir='column'>
             <Box fontSize='36px'>Ready to Focus?</Box>
             <Box>
@@ -98,10 +100,17 @@ const Timer = (props) => {
             </Box>
           </Flex>
         </Box>
-        <Box w="500px">
-          <Image src='../../../public/images/data.png' />
+        <Box>
+        {sessionComplete ? (<Flex>
+          <Box w="500px">
+          <Image src='../../../public/images/graph.png' />
         </Box>
-      </AbsoluteCenter>
+        <Box  w="300px">
+        <Image src='../../../public/images/pie.png' />
+      </Box></Flex>
+        ) : (<Box></Box>)}
+        </Box>
+      </Flex>
     </Box>
   );
 }
